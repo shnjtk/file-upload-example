@@ -20,3 +20,5 @@
 .byebug_history
 
 /vendor/bundle
+
+/public/uploads
