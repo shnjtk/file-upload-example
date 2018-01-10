@@ -62,6 +62,8 @@ GEM
     crass (1.0.3)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
+    dropzonejs-rails (0.8.2)
+      rails (> 3.1)
     erubi (1.7.0)
     excon (0.60.0)
     execjs (2.7.0)
@@ -360,6 +362,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   carrierwave
+  dropzonejs-rails
   fog
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
