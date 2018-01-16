@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery except: [:create]
 
   # GET /products
   # GET /products.json
@@ -24,7 +25,8 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(product_params)
+    @product = Product.new(name: params[:product][:name])
+    @images = params[:product][:images].map { |image| @product.images.build(content: image) }
 
     respond_to do |format|
       if @product.save
@@ -62,6 +64,7 @@ class ProductsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
@@ -69,6 +72,10 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :image, :image_cache)
+      params.require(:product).permit(:name)
+    end
+
+    def images_params
+      params.require(:product).permit(images: [:name])
     end
 end

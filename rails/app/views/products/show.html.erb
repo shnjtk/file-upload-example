@@ -7,7 +7,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= image_tag @product.image_url(:thumb) %>
+  <%= image_tag @product.images.first.content_url(:thumb) %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |

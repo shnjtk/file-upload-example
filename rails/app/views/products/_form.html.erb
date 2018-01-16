@@ -17,10 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= image_tag product.image_url(:thumb) if product.image? %>
-    <%= form.file_field :image, multiple: true %>
-    <%= form.hidden_field :image_cache %>
+    <%= form.label :images %>
+    <%= form.file_field :images, multiple: true %>
   </div>
 
   <div class="actions">
