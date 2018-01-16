@@ -34,6 +34,10 @@ class Upload extends React.Component {
 
     fetch('http://localhost:3000/products', {
       method: 'POST',
+      headers: {
+        'Accept': 'application/json'
+      },
+      mode: 'cors',
       body: data
     }).then(res => {
       console.log(res.json());
