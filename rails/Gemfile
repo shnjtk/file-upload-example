@@ -41,6 +41,9 @@ gem 'fog'
 # Use dropzone-rails to upload multiple files by drag'n'drop
 gem 'dropzonejs-rails'
 
+# Use rack-cors to set Access-Control-Allow-Origin header
+gem 'rack-cors', require: 'rack/cors'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
