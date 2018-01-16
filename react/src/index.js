@@ -9,7 +9,8 @@ class Upload extends React.Component {
     super(props);
     this.state = {
       acceptedFiles: [],
-      rejectedFiles: []
+      rejectedFiles: [],
+      name: ''
     };
   }
 
@@ -27,7 +28,7 @@ class Upload extends React.Component {
   handleUpload() {
     let data = new FormData();
 
-    data.append('product[name]', 'Test from React');
+    data.append('product[name]', this.state.name);
     this.state.acceptedFiles.map( file => {
       data.append('product[images][]', file)
     });
@@ -59,7 +60,13 @@ class Upload extends React.Component {
     return (
       <section>
         <div className="uploadFile">
-          Upload files...
+          <h1>Upload files</h1>
+          <br className="clear" />
+
+          <label>Name</label>
+          <br className="clear" />
+          <input type="text" name="name" value={this.state.name} onChange={e => this.setState({name: e.target.value})} />
+          <br className="clear" />
 
           <DropZone
             ref={(node) => this.dropzone = node}
